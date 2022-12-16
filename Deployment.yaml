@@ -1,0 +1,58 @@
+apiVersion: apps/v1
+
+kind: Deployment
+
+metadata:
+
+  name: pet-clinics-deployment
+
+spec:
+
+  selector:
+
+    matchLabels:
+
+      app: pet-clinics
+
+  replicas: 2 
+
+  template:
+
+    metadata:
+
+      labels:
+
+        app: pet-clinics
+
+    spec:
+
+      containers:
+
+      - name: pet-clinics
+
+        image: srinu318/pet-clinics:latest
+
+        ports:
+
+        - containerPort: 80
+
+
+Step1: Create the Deployment by running the following command
+kubectl apply -f Deployment.yaml
+
+Step2: to check if the Deployment was created
+kubectl get deployments 
+
+step3: To see the ReplicaSet (rs) created by the Deployment, run 
+kubectl get rs
+
+step4: To see the labels automatically generated for each Pod, run 
+kubectl get pods --show-labels
+
+spet5: Get details of your Deployment
+kubectl describe deployments
+
+
+
+
+
